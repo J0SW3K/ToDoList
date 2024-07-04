@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#b8fff6, #64ffea); 
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+main {
+    font-family: "Manrope", sans-serif;
+    background-color: rgb(253, 253, 253);
+    margin-top: 20px; margin-bottom: 20px;
+    border-radius: 20px;
+    padding-top: 10px; padding-bottom: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .content-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main .content-list .titulo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+main .content-list .tareas{
+    margin-top: 10px; margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+main .content-list .tareas .tarea{
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 4px 6px 10px rgb(233, 233, 233);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+main .content-list .tareas .tarea:hover {
+    transform: translate(0, -5px);
+    box-shadow: 4px 6px 15px rgb(233, 233, 233);
+}
+
+main .content-list .tareas .tarea .estado input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+main .content-list .tareas .tarea .estado input[type="checkbox"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: rgb(100, 255, 234);
+    border-radius: 50%;
+}
+
+main .content-list .boton button{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(100, 255, 234);
+    border: 0;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+main .content-list .boton button:hover {
+    transform: scale(1.1);
+}
+
+main .content-list .formulario-agregar {
+    border-radius: 20px;
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .content-list .formulario-agregar form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+main .content-list .formulario-agregar input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+main .content-list .formulario-agregar input[type="text"]:focus {
+    border-color: #64ffea;
+}
+
+main .content-list .formulario-agregar button[type="submit"] {
+    width: auto;
+    padding: 10px;
+    background-color: #64ffea;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+main .content-list .formulario-agregar button[type="submit"]:hover {
+    background-color: #3ac6bf;
+    transform: scale(1.05);
+}
+
+.btn-eliminar {
+    display: none;
+}

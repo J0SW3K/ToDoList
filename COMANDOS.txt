@@ -1,0 +1,11 @@
+venv\Scripts\activate.bat
+flask run
+o
+flask --app ToDo run --debug 
+o
+flask --app ToDo run --debug -p 3300
+
+MIGRATE:
+flask db init
+flask db migrate -m "Primera migración"
+flask db upgrade

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block titulo %} Tareas {% endblock titulo %}
+{% block main %}
+    <div class="content-list">
+        <div class="titulo">
+            {% if tasks | length >= 2 %}
+                <h1>Lista de Tareas</h1>
+            {% else %}
+                <h1>Tarea</h1>
+            {% endif %}
+        </div>
+        {% if tasks %}
+        <div class="tareas">
+            {% for task in tasks %}
+            <div class="tarea">
+                <div class="nombre-tarea">
+                    <p data-task-id="{{ task.id_task }}" {% if task.estado != 1 %} style="text-decoration: line-through;" {% endif %}>{{ task.nombre }}</p>
+                    <button class="btn-eliminar" data-task-id="{{ task.id_task }}">Eliminar</button>
+                </div>
+                <div class="estado">
+                    <input type="checkbox" name="estado" id="estado-{{ task.id_task }}" data-task-id="{{ task.id_task }}" {% if task.estado == 1 %} checked {% endif %}>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <!-- Formulario para agregar tarea (inicialmente oculto) -->
+        <div class="formulario-agregar" id="formularioAgregar" style="display: none;">
+            <form action="{{ url_for('crud.agregarTask') }}" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre de la tarea" required>
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+        <div class="boton">
+            <button type="button" id="btnAgregar">+</button>
+        </div>
+    </div>
+{% endblock main %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/cambiarTaks.js') }}"></script>
+<script src="{{ url_for('static', filename='js/botones.js') }}"></script>
+{% endblock scripts %}
