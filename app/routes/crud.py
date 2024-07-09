@@ -21,7 +21,6 @@ def agregarTask():
 def toggleTask(id_task):
     task = Task.query.get_or_404(id_task)
 
-    # Cambia el estado de la tarea
     if task.estado == 1:
         task.estado = 0
     else:
